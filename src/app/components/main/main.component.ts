@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {City} from "../../models/city.model";
+import {Weather} from "../../models/weather.model";
 
 @Component({
   selector: 'app-main',
@@ -9,6 +10,9 @@ import {City} from "../../models/city.model";
 export class MainComponent implements OnInit {
 
   @Input() city: City | undefined;
+  @Input() weather: Weather | undefined;
+
+  date: Date = new Date();
 
   constructor() {
   }

@@ -1,27 +1,33 @@
-<div class="row p-3">
-  <geoapify-geocoder-autocomplete (placeSelect)="onPlaceSelected($event)"></geoapify-geocoder-autocomplete>
-</div>
+<div class="my-5">
+  <div class="row">
+    <geoapify-geocoder-autocomplete (placeSelect)="onPlaceSelected($event)"></geoapify-geocoder-autocomplete>
+  </div>
 
-<div class="mr-5">
-    <h2>Weather Details</h2>
+  <div class="row mt-3">
+    <h3>Weather Details</h3>
 
     <div class="row px-3">
-      <p class="light-text">Cloudy</p>
-      <p class="ml-auto">12%</p>
+      <div class="col-md-6">
+        <h5 class="light-text">Temperature</h5>
+        <p class="ml-auto">{{weather?.temp}} ºC</p>
+      </div>
+
+      <div class="col-md-6">
+        <h5 class="light-text">Humidity</h5>
+        <p class="ml-auto">{{weather?.humidity}}</p>
+      </div>
     </div>
 
     <div class="row px-3">
-      <p class="light-text">Humidity</p>
-      <p class="ml-auto">78%</p>
-    </div>
+      <div class="col-md-6">
+        <h5 class="light-text">Dew point</h5>
+        <p class="ml-auto">{{weather?.dewPoint}}</p>
+      </div>
 
-    <div class="row px-3">
-      <p class="light-text">Wind</p>
-      <p class="ml-auto">1km/h</p>
+      <div class="col-md-6">
+        <h5 class="light-text">Visibility</h5>
+        <p class="ml-auto">{{weather?.visibility}} metros</p>
+      </div>
     </div>
-
-    <div class="row px-3">
-      <p class="light-text">Rain</p>
-      <p class="ml-auto">0mm</p>
-    </div>
+  </div>
 </div>

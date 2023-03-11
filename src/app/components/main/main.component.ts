@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {City} from "../../models/city.model";
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -6,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  @Input() city: City | undefined;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

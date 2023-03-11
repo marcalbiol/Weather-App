@@ -5,3 +5,6 @@
 
 /* Font Awesome */
 @import "../node_modules/font-awesome/css/font-awesome.css";
+
+/* API Geoapify */
+@import "../node_modules/@geoapify/geocoder-autocomplete/styles/round-borders.css";

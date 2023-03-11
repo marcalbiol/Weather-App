@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {GeoapifyGeocoderAutocompleteModule} from "@geoapify/angular-geocoder-autocomplete";
 
 @Component({
   selector: 'app-side-bar',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideBarComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
+  }
+
+  // TODO: Set correct type
+  placeSelected(event: any) {
+    console.log("Lat: " + event.properties.lat);
+    console.log("Lon: " + event.properties.lon);
   }
 
 }

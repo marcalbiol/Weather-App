@@ -18,6 +18,8 @@
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
+    "@geoapify/angular-geocoder-autocomplete": "^1.4.0",
+    "@geoapify/geocoder-autocomplete": "^1.5.1",
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.3",
     "font-awesome": "^4.7.0",

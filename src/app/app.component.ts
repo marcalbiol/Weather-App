@@ -12,8 +12,8 @@ import {keyframes} from "@angular/animations";
 export class AppComponent implements OnInit {
   title = 'Weather-App';
 
-  city: City | undefined;
-  weather: Weather | undefined;
+  city?: City;
+  weather?: Weather;
 
   constructor(private weatherService: WeatherService) {
   }

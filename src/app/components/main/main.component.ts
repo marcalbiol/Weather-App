@@ -9,8 +9,8 @@ import {Weather} from "../../models/weather.model";
 })
 export class MainComponent implements OnInit {
 
-  @Input() city: City | undefined;
-  @Input() weather: Weather | undefined;
+  @Input() city?: City;
+  @Input() weather?: Weather;
 
   date: Date = new Date();
 

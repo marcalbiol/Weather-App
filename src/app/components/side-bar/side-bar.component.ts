@@ -9,7 +9,7 @@ import {Weather} from "../../models/weather.model";
 })
 export class SideBarComponent implements OnInit {
 
-  @Input() weather: Weather | undefined;
+  @Input() weather?: Weather;
   @Output() onSelected = new EventEmitter<any>();
 
   constructor() {

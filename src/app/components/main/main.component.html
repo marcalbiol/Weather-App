@@ -4,7 +4,7 @@
   </div>
 
   <div class="col-4 align-items-center text-end">
-    <img src="https://openweathermap.org/img/wn/{{weather?.icon}}@2x.png"/>
+    <img *ngIf="weather?.icon != null" src="https://openweathermap.org/img/wn/{{weather?.icon}}@2x.png"/>
   </div>
 </div>
 
@@ -17,5 +17,5 @@
   <p class="h3">{{ weather?.temp }} ºC</p>
 
   <h2 class="mb-0">{{ city?.name }}</h2>
-  <small>{{ date | date: 'long' }}</small>
+  <small>{{ weather?.date | date: 'long' }}</small>
 </div>

@@ -1,9 +1,11 @@
 export class WeatherBase {
+  date: Date;
   temp: number;
   icon: string;
 
-  constructor(temp: number, weatherCondition: string) {
+  constructor(date: Date, temp: number, icon: string) {
+    this.date = date;
     this.temp = temp;
-    this.icon = weatherCondition;
+    this.icon = icon;
   }
 }

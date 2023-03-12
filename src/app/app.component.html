@@ -1,12 +1,12 @@
 <div class="container-fluid px-1 px-sm-3 py-5 mx-auto">
   <div class="row d-flex justify-content-center">
     <div class="row card0">
-      <div class="card1 col-lg-8 col-md-7">
+      <div class="card1 col-xl-9">
         <app-main [city]="city" [weather]="weather"></app-main>
       </div>
 
-      <div class="card2 col-lg-4 col-md-5">
-        <app-side-bar [weather]="weather" (onSelected)="onPlaceSelected($event)"></app-side-bar>
+      <div class="card2 col-xl-3 p-5">
+        <app-side-bar [weather]="weather" [weatherForecast]="weatherForecast" (onSelected)="onPlaceSelected($event)"></app-side-bar>
       </div>
     </div>
   </div>

@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {City} from "../../models/city.model";
 import {Weather} from "../../models/weather.model";
+import {WeatherBase} from "../../models/weather-base.model";
 
 @Component({
   selector: 'app-side-bar',
@@ -10,6 +11,7 @@ import {Weather} from "../../models/weather.model";
 export class SideBarComponent implements OnInit {
 
   @Input() weather?: Weather;
+  @Input() weatherForecast?: WeatherBase[];
   @Output() onSelected = new EventEmitter<any>();
 
   constructor() {

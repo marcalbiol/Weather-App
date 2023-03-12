@@ -7,20 +7,12 @@ import {Weather} from "../../models/weather.model";
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class MainComponent implements OnChanges {
+export class MainComponent {
 
   @Input() city?: City;
   @Input() weather?: Weather;
 
-  date?: Date;
-
   constructor() {
-  }
-
-  ngOnChanges(): void {
-    if (this.weather) {
-      this.date = new Date();
-    }
   }
 
 }

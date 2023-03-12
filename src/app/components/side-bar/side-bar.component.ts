@@ -18,8 +18,9 @@ export class SideBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onPlaceSelected(event: { properties: { address_line2: string; lat: string; lon: string; }; }) {
-    let city = new City(event.properties.address_line2, event.properties.lat, event.properties.lon);
+  onPlaceSelected(event: { properties: { address_line1: string; address_line2: string; lat: string; lon: string; }; }) {
+    let addressLine2 = event.properties.address_line2 != null ? event.properties.address_line2 : event.properties.address_line1;
+    let city = new City(addressLine2, event.properties.lat, event.properties.lon);
     this.onSelected.emit(city);
   }
 

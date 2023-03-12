@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {City} from "./models/city.model";
 import {WeatherService} from "./services/weather.service";
 import {Weather} from "./models/weather.model";
-import {keyframes} from "@angular/animations";
 
 @Component({
   selector: 'app-root',
@@ -31,7 +30,7 @@ export class AppComponent implements OnInit {
   loadWeather(city: City) {
     this.weatherService.getWeatherData(city.lat, city.lon).subscribe(res => {
       const current = res.current;
-      this.weather = new Weather(current.temp, current.humidity, current.dew_point, current.visibility);
+      this.weather = new Weather(current.temp, current.weather[0].icon, current.humidity, current.dew_point, current.visibility);
     })
   }
 

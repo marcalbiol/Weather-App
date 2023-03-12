@@ -5,8 +5,8 @@ export class Weather extends WeatherBase {
   dewPoint: number;
   visibility: number;
 
-  constructor(temp: number, humidity: number, dewPoint: number, visibility: number) {
-    super(temp);
+  constructor(temp: number, icon: string, humidity: number, dewPoint: number, visibility: number) {
+    super(temp, icon);
     this.humidity = humidity;
     this.dewPoint = dewPoint;
     this.visibility = visibility;

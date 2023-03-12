@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {City} from "../../models/city.model";
 import {Weather} from "../../models/weather.model";
 
@@ -7,17 +7,20 @@ import {Weather} from "../../models/weather.model";
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class MainComponent implements OnInit {
+export class MainComponent implements OnChanges {
 
   @Input() city?: City;
   @Input() weather?: Weather;
 
-  date: Date = new Date();
+  date?: Date;
 
   constructor() {
   }
 
-  ngOnInit(): void {
+  ngOnChanges(): void {
+    if (this.weather) {
+      this.date = new Date();
+    }
   }
 
 }

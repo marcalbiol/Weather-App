@@ -5,7 +5,6 @@ import {Weather} from "./models/weather.model";
 import {WeatherBase} from "./models/weather-base.model";
 import {OpenWeather} from "./models/open-weather.model";
 import {Ip} from "./models/ip";
-import {interval, Observable, take} from "rxjs";
 
 const timestamp = require('unix-timestamp');
 
@@ -19,20 +18,16 @@ export class AppComponent implements OnInit {
   city?: City;
   weather?: Weather;
   weatherForecast: WeatherBase[] = [];
-  lastCityInfo: string[] = [];
 
   constructor(private weatherService: WeatherService) {
   }
 
   ngOnInit(): void {
-    // se guardan los valores de las cookies
-    const [cityName, latit, long] = document.cookie.split(',');
 
-    // si existen cookies
-    const city = cityName ? new City(cityName, latit, long) : null;
-
-    if (city) {
-      this.onPlaceSelected(city);
+    if (document.cookie){
+      const cityData: City = JSON.parse(document.cookie)
+      const newCity = new City(cityData.name, cityData.lat, cityData.lon)
+      this.onPlaceSelected(newCity);
     } else {
       //no hay cookies, llama al servicio y coge la ciudad x ip
       this.weatherService.getIp().subscribe((res: Ip) => {
@@ -44,13 +39,8 @@ export class AppComponent implements OnInit {
 
 
   onPlaceSelected(city: City) {
-    this.lastCityInfo = []
     this.city = city;
-    city.name = city.name.replace(',', '.')
-    Object.values(city).map(x => {
-      this.lastCityInfo?.push(x);
-    })
-    document.cookie = this.lastCityInfo.toString()
+    document.cookie = JSON.stringify(city)
     this.loadWeather(city);
   }
 

@@ -23,6 +23,8 @@
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.3",
     "font-awesome": "^4.7.0",
+    "geoip-lite": "^1.4.7",
+    "get-client-ip": "^1.1.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "unix-timestamp": "^1.0.3",

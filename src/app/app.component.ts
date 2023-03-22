@@ -4,6 +4,7 @@ import {WeatherService} from "./services/weather.service";
 import {Weather} from "./models/weather.model";
 import {WeatherBase} from "./models/weather-base.model";
 import {OpenWeather} from "./models/open-weather.model";
+import {Ip} from "./models/ip";
 
 const timestamp = require('unix-timestamp');
 
@@ -14,7 +15,6 @@ const timestamp = require('unix-timestamp');
 })
 export class AppComponent implements OnInit {
   title = 'Weather-App';
-
   city?: City;
   weather?: Weather;
   weatherForecast: WeatherBase[] = [];
@@ -23,12 +23,16 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let city = new City("43201 Reus, Spain", "41.1555564", "1.1076133");
-    this.onPlaceSelected(city);
+    this.weatherService.getIp().subscribe((res:Ip) => {
+      let city = new City(res.city, res.latitude.toString(), res.longitude.toString());
+      this.onPlaceSelected(city);
+    })
   }
+
 
   onPlaceSelected(city: City) {
     this.city = city;
+    console.log(city)
     this.loadWeather(city);
   }
 
@@ -47,5 +51,5 @@ export class AppComponent implements OnInit {
       });
     });
   }
-
 }
+
